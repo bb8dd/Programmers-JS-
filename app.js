@@ -314,15 +314,119 @@ function solution(n) {
 // 재한사항
 // s는 길이가 1 이상, 100이하인 스트링입니다.
 // 입출력 예
-// s	return
+// s	      return
 // "abcde"	"c"
 // "qwer"	"we"
 
 function solution(s) {
-   var answer = '';
+   let answer = '';
+   let arr = [...s];
+   arr.length % 2 === 0 ? arr = arr.slice((arr.length / 2) - 1, (arr.length / 2) + 1) : arr = arr.slice((arr.length / 2), (arr.length / 2) + 1)
+
+   arr.forEach((e)=>{
+      answer+= e;
+   })
+
    return answer;
 }
 
+// 두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 리턴하는 함수, solution을 완성하세요.
+// 예를 들어 a = 3, b = 5인 경우, 3 + 4 + 5 = 12이므로 12를 리턴합니다.
+
+// 제한 조건
+// a와 b가 같은 경우는 둘 중 아무 수나 리턴하세요.
+// a와 b는 -10,000,000 이상 10,000,000 이하인 정수입니다.
+// a와 b의 대소관계는 정해져있지 않습니다.
+// 입출력 예
+// a	b	return
+// 3	5	12
+// 3	3	3
+// 5	3	12
+
+function solution(a, b) {
+
+   const start = Math.min(a,b)
+   const end = Math.max(a,b)
+   let answer = end;
+   if(start !== end){
+       for(let i = start; i < end; i++) {
+           answer+=i
+       }
+   }
+   return answer
+}
+
+// 문자열 s를 숫자로 변환한 결과를 반환하는 함수, solution을 완성하세요.
+
+// 제한 조건
+// s의 길이는 1 이상 5이하입니다.
+// s의 맨앞에는 부호(+, -)가 올 수 있습니다.
+// s는 부호와 숫자로만 이루어져있습니다.
+// s는 "0"으로 시작하지 않습니다.
+// 입출력 예
+// 예를들어 str이 "1234"이면 1234를 반환하고, "-1234"이면 -1234를 반환하면 됩니다.
+// str은 부호(+,-)와 숫자로만 구성되어 있고, 잘못된 값이 입력되는 경우는 없습니다.
+
+function solution(s) {
+   return s*1
+}
+
+// 정수 n을 입력받아 n의 약수를 모두 더한 값을 리턴하는 함수,
+//  solution을 완성해주세요.
+
+// 제한 사항
+// n은 0 이상 3000이하인 정수입니다.
+// 입출력 예
+// n	return
+// 12	28
+// 5	6
+// 입출력 예 설명
+// 입출력 예 #1
+// 12의 약수는 1, 2, 3, 4, 6, 12입니다. 이를 모두 더하면 28입니다.
+
+// 입출력 예 #2
+// 5의 약수는 1, 5입니다. 이를 모두 더하면 6입니다.
+
+function solution(n) {
+   let answer = 0;
+   let x = 0;
+   while(true){
+       if(n % x === 0){
+           answer+=x
+       }
+       if(n / x === 1) break;
+       x++;
+   }
+   return answer;
+}
+
+// 문자열 s는 한 개 이상의 단어로 구성되어 있습니다. 각 단어는 하나 이상의 공백문자로 구분되어 있습니다. 
+// 각 단어의 짝수번째 알파벳은 대문자로, 홀수번째 알파벳은 소문자로 바꾼 문자열을 리턴하는 함수, solution을 완성하세요.
+
+// 제한 사항
+// 문자열 전체의 짝/홀수 인덱스가 아니라, 단어(공백을 기준)별로 짝/홀수 인덱스를 판단해야합니다.
+// 첫 번째 글자는 0번째 인덱스로 보아 짝수번째 알파벳으로 처리해야 합니다.
+// 입출력 예
+// s	return
+// "try hello world"	"TrY HeLlO WoRlD"
+// 입출력 예 설명
+// "try hello world"는 세 단어 "try", "hello", "world"로 구성되어 있습니다. 
+// 각 단어의 짝수번째 문자를 대문자로, 홀수번째 문자를 소문자로 바꾸면 "TrY", "HeLlO", "WoRlD"입니다. 따라서 "TrY HeLlO WoRlD" 를 리턴합니다.
+
+function solution(s) {
+   var answer = '';
+   let arr = [...s]
+   arr.map((e)=>{
+      if(arr.indexOf(e) % 2 == 0) {
+         console.log(e)
+         e = e.toUpperCase();
+         console.log(e)
+         return e
+      }
+   })
+   console.log(arr);
+   return answer;
+}
 
 //* level 2 
 
