@@ -277,6 +277,51 @@ function solution(left, right) {
 }
 
 
+// 자연수 n이 매개변수로 주어집니다. n을 x로 나눈 나머지가 1이 되도록 하는 가장 작은 자연수 x를 return 하도록 solution 함수를 완성해주세요. 
+// 답이 항상 존재함은 증명될 수 있습니다.
+
+// 제한사항
+// 3 ≤ n ≤ 1,000,000
+// 입출력 예
+// n	   result
+// 10	   3
+// 12	   11
+// 입출력 예 설명
+
+// 입출력 예 #1
+// 10을 3으로 나눈 나머지가 1이고, 3보다 작은 자연수 중에서 문제의 조건을 만족하는 수가 없으므로, 3을 return 해야 합니다.
+
+// 입출력 예 #2
+// 12를 11로 나눈 나머지가 1이고, 11보다 작은 자연수 중에서 문제의 조건을 만족하는 수가 없으므로, 11을 return 해야 합니다.
+
+function solution(n) {
+   let x = 0;
+   let answer = 0;
+   while(true){
+      if(n % x === 1) break;
+      x++;
+   }
+   answer = x;
+
+   return answer;
+}
+
+// 단어 s의 가운데 글자를 반환하는 함수, solution을 만들어 보세요.
+//  단어의 길이가 짝수라면 가운데 두글자를 반환하면 됩니다.
+
+// 재한사항
+// s는 길이가 1 이상, 100이하인 스트링입니다.
+// 입출력 예
+// s	return
+// "abcde"	"c"
+// "qwer"	"we"
+
+function solution(s) {
+   var answer = '';
+   return answer;
+}
+
+
 //* level 2 
 
 // 가로 길이가 Wcm, 세로 길이가 Hcm인 직사각형 종이가 있습니다. 
@@ -329,6 +374,7 @@ function solution(w, h) {
 // 입출력 예
 // n	k	result
 // 3	5	[3,1,2]
+
 
 
 
