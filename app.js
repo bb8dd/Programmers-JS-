@@ -418,8 +418,7 @@ function solution(s) {
    let arr = [...s]
    arr.map((e)=>{
       if(arr.indexOf(e) % 2 == 0) {
-         arr. = e.toUpperCase();
-         
+         arr[indexOf(e)] = e.toUpperCase();
       }
       return e
    })
