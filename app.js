@@ -414,16 +414,213 @@ function solution(n) {
 // 각 단어의 짝수번째 문자를 대문자로, 홀수번째 문자를 소문자로 바꾸면 "TrY", "HeLlO", "WoRlD"입니다. 따라서 "TrY HeLlO WoRlD" 를 리턴합니다.
 
 function solution(s) {
-   var answer = '';
-   let arr = [...s]
-   arr.map((e)=>{
-      if(arr.indexOf(e) % 2 == 0) {
-         arr[indexOf(e)] = e.toUpperCase();
-      }
-      return e
-   })
-   console.log(arr);
+   return arr.map(word=> word.split("").map((e, i)=> i % 2 === 0 ? e = e.toUpperCase() : e = e.toLowerCase()).join("")).join(" ")
+}
+
+// 정수를 담고 있는 배열 arr의 평균값을 return하는 함수, solution을 완성해보세요.
+
+// 제한사항
+// arr은 길이 1 이상, 100 이하인 배열입니다.
+// arr의 원소는 -10,000 이상 10,000 이하인 정수입니다.
+// 입출력 예
+// arr	      return
+// [1,2,3,4]	2.5
+// [5,5]	      5
+
+function solution(arr) {
+   let answer = 0;
+   arr.forEach(element => {
+      answer=+element / arr.length
+      console.log(answer)
+   });
    return answer;
+}
+
+// 정수 배열 numbers가 주어집니다. 
+// numbers에서 서로 다른 인덱스에 있는 두 개의 수를 뽑아 더해서 만들 수 있는 모든 수를 배열에 오름차순으로 담아 return 하도록 solution 함수를 완성해주세요.
+
+// 제한사항
+// numbers의 길이는 2 이상 100 이하입니다.
+// numbers의 모든 수는 0 이상 100 이하입니다.
+// 입출력 예
+// numbers	   result
+// [2,1,3,4,1]	[2,3,4,5,6,7]
+// [5,0,2,7]	[2,5,7,9,12]
+// 입출력 예 설명
+// 입출력 예 #1
+
+// 2 = 1 + 1 입니다. (1이 numbers에 두 개 있습니다.)
+// 3 = 2 + 1 입니다.
+// 4 = 1 + 3 입니다.
+// 5 = 1 + 4 = 2 + 3 입니다.
+// 6 = 2 + 4 입니다.
+// 7 = 3 + 4 입니다.
+// 따라서 [2,3,4,5,6,7] 을 return 해야 합니다.
+// 입출력 예 #2
+
+// 2 = 0 + 2 입니다.
+// 5 = 5 + 0 입니다.
+// 7 = 0 + 7 = 5 + 2 입니다.
+// 9 = 2 + 7 입니다.
+// 12 = 5 + 7 입니다.
+// 따라서 [2,5,7,9,12] 를 return 해야 합니다.
+
+function solution(numbers) {
+   (
+   return answer;
+}
+
+// 정수를 저장한 배열, arr 에서 가장 작은 수를 제거한 배열을 리턴하는 함수, solution을 완성해주세요. 
+// 단, 리턴하려는 배열이 빈 배열인 경우엔 배열에 -1을 채워 리턴하세요. 
+// 예를들어 arr이 [4,3,2,1]인 경우는 [4,3,2]를 리턴 하고, [10]면 [-1]을 리턴 합니다.
+
+// 제한 조건
+// arr은 길이 1 이상인 배열입니다.
+// 인덱스 i, j에 대해 i ≠ j이면 arr[i] ≠ arr[j] 입니다.
+// 입출력 예
+// arr	      return
+// [4,3,2,1]	[4,3,2]
+// [10]	      [-1]
+
+function solution(arr) {
+   let answer = [...arr]
+   answer.splice(answer.indexOf(arr.sort((a, b)=>{
+      return a - b
+   }).shift()), 1)
+   return answer.length ? arr : [-1]
+}
+
+// 배열 arr가 주어집니다.
+// 배열 arr의 각 원소는 숫자 0부터 9까지로 이루어져 있습니다.
+// 이때, 배열 arr에서 연속적으로 나타나는 숫자는 하나만 남기고 전부 제거하려고 합니다.
+// 단, 제거된 후 남은 수들을 반환할 때는 배열 arr의 원소들의 순서를 유지해야 합니다.
+// 예를 들면,
+
+// arr = [1, 1, 3, 3, 0, 1, 1] 이면 [1, 3, 0, 1] 을 return 합니다.
+// arr = [4, 4, 4, 3, 3] 이면 [4, 3] 을 return 합니다.
+// 배열 arr에서 연속적으로 나타나는 숫자는 제거하고 남은 수들을 return 하는 solution 함수를 완성해 주세요.
+
+// 제한사항
+// 배열 arr의 크기 : 1,000,000 이하의 자연수
+// 배열 arr의 원소의 크기 : 0보다 크거나 같고 9보다 작거나 같은 정수
+// 입출력 예
+// arr	            answer
+// [1,1,3,3,0,1,1]	[1,3,0,1]
+// [4,4,4,3,3]	      [4,3]
+// 입출력 예 설명
+// 입출력 예 #1,2
+// 문제의 예시와 같습니다.
+
+function solution(arr) {
+    let answer = [];
+    let temp = arr[0]
+    answer.push(temp)
+    for (let i = 0; i < arr.length; i++) {
+        if (temp === arr[i]) {} else {
+            temp = arr[i]
+            answer.push(temp)
+
+        }
+    }
+
+    return answer;
+}
+
+// 길이가 n이고, "수박수박수박수...."와 같은 패턴을 유지하는 문자열을 리턴하는 함수, 
+// solution을 완성하세요.
+// 예를들어 n이 4이면 "수박수박"을 리턴하고 3이라면 "수박수"를 리턴하면 됩니다.
+
+// 제한 조건
+// n은 길이 10,000이하인 자연수입니다.
+// 입출력 예
+// n	return
+// 3	"수박수"
+// 4	"수박수박"
+
+function solution(n) {
+   let answer = [];
+
+   for(let i = 0; i < n; i++){
+      i % 2 === 0 ? answer.push("수") : answer.push("박")
+   }
+
+   return answer.join("");;
+}
+
+// 문자열 s의 길이가 4 혹은 6이고, 
+// 숫자로만 구성돼있는지 확인해주는 함수, 
+// solution을 완성하세요. 
+// 예를 들어 s가 "a234"이면 False를 리턴하고 "1234"라면 True를 리턴하면 됩니다.
+
+// 제한 사항
+// s는 길이 1 이상, 길이 8 이하인 문자열입니다.
+// 입출력 예
+// s	      return
+// "a234"	false
+// "1234"	true
+
+function solution(s) {
+   return (s * 1 && s.indexOf("e") === -1) && (s.length === 4 || s.length === 6) ? true : false
+}
+
+// 문제 설명
+// 1부터 입력받은 숫자 n 사이에 있는 소수의 개수를 반환하는 함수, 
+// solution을 만들어 보세요.
+
+// 소수는 1과 자기 자신으로만 나누어지는 수를 의미합니다.
+// (1은 소수가 아닙니다.)
+
+// 제한 조건
+// n은 2이상 1000000이하의 자연수입니다.
+// 입출력 예
+// n	result
+// 10	4
+// 5	3
+// 입출력 예 설명
+// 입출력 예 #1
+// 1부터 10 사이의 소수는 [2,3,5,7] 4개가 존재하므로 4를 반환
+
+// 입출력 예 #2
+// 1부터 5 사이의 소수는 [2,3,5] 3개가 존재하므로 3를 반환
+
+function solution(n) {
+   let answer = 0;
+   let arr = [...Array(n+1)].map((e, i) => i);
+
+   (
+   arr.forEach(element => {
+      arr.filter((e => {
+         
+      }))
+   });
+   
+   return answer;
+}
+
+// 자연수 N이 주어지면, N의 각 자릿수의 합을 구해서 return 하는 solution 함수를 만들어 주세요.
+// 예를들어 N = 123이면 1 + 2 + 3 = 6을 return 하면 됩니다.
+
+// 제한사항
+// N의 범위 : 100,000,000 이하의 자연수
+// 입출력 예
+// N	   answer
+// 123	6
+// 987	24
+// 입출력 예 설명
+// 입출력 예 #1
+// 문제의 예시와 같습니다.
+
+// 입출력 예 #2
+// 9 + 8 + 7 = 24이므로 24를 return 하면 됩니다.
+
+function solution(n) {
+   let str = n + ""
+   let arr = [...str];
+   console.log(arr)
+   arr.reduce((v , i)=> {
+      return (v*1) + i
+   })
+   return 
 }
 
 //* level 2 
