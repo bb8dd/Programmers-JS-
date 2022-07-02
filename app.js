@@ -414,7 +414,13 @@ function solution(n) {
 // 각 단어의 짝수번째 문자를 대문자로, 홀수번째 문자를 소문자로 바꾸면 "TrY", "HeLlO", "WoRlD"입니다. 따라서 "TrY HeLlO WoRlD" 를 리턴합니다.
 
 function solution(s) {
-   return arr.map(word=> word.split("").map((e, i)=> i % 2 === 0 ? e = e.toUpperCase() : e = e.toLowerCase()).join("")).join(" ")
+    return arr
+        .map(word => word.split("").map(
+            (e, i) => i % 2 === 0
+                ? e = e.toUpperCase()
+                : e = e.toLowerCase()
+        ).join(""))
+        .join(" ")
 }
 
 // 정수를 담고 있는 배열 arr의 평균값을 return하는 함수, solution을 완성해보세요.
