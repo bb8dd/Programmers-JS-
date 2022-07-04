@@ -1126,16 +1126,34 @@ function solution(n, lost, reserve) {
 // 모든 사람이 2문제씩을 맞췄습니다.
 
 function solution(answers) {
-   let 일번선수 = [1, 2, 3, 4, 5];
-   let 이번선수 = [2, 1, 2, 3, 2, 4, 2, 5];
-   let 삼번선수 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+   let result = []; // 제일 많이 맞춘 사람
+   
+   const answer = answers.join("")
+   const quizCount = answer.length;
+   
+   let user1 = [1, 2, 3, 4, 5];
+   let user2 = [2, 1, 2, 3, 2, 4, 2, 5];
+   let user3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
 
-   let 일번선수점수 = 일번선수.filter(
-      (e, i)=>{
-         e = answers[i]
-   }).length
+   let user1Point = 0;
+   let user2Point = 0;
+   let user3Point = 0;
 
-   return 일번선수점수;
+   const user1Answers =  user1.join("").repeat(answers.length % user1.length === 0 ? answers.length / user1.length : Math.ceil(answers.length / user1.length) );
+   const user2Answers = user2.join("").repeat(answers.length % user2.length === 0 ? answers.length / user2.length : Math.ceil(answers.length / user2.length) );
+   const user3Answers = user3.join("").repeat(answers.length % user3.length === 0 ? answers.length / user3.length : Math.ceil(answers.length / user3.length) );
+
+   for(let i = 0; i < quizCount; i++){
+      if(user1Answers[i] == answer[i]) user1Point++
+      if(user2Answers[i] == answer[i]) user2Point++
+      if(user3Answers[i] == answer[i]) user3Point++
+   }
+
+  if(Math.max(user1Point, user2Point, user3Point)=== user1Point) result.push(1)
+  if(Math.max(user1Point, user2Point, user3Point)=== user2Point) result.push(2)
+  if(Math.max(user1Point, user2Point, user3Point)=== user3Point) result.push(3)
+
+   return result
 }
 
 //* level 2 
