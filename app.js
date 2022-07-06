@@ -899,7 +899,7 @@ function solution(arr1, arr2) {
 // 참고 사항
 // 미션 언어는 Java, JavaScript, Python3, C++ 만 해당 됩니다.
 // 같은 코드를 제출한 사람이 여럿이라면 코드를 가장 먼저 제출한 분께 상품을 드립니다.
-// 좋아요 수가 동일할 경우 코드를 가장 먼저 제출한 분께 상품을 드립니다.
+// 좋아요 수가 동일할 경우 코드를 가장 먼저 제출한 분께 상품을 드립니다
 
 function solution(price, money, count) {
    for(let i = 1; i < count +1; i++){
