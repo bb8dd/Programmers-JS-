@@ -869,9 +869,12 @@ function solution(x, n) {
 // [[1],[2]]	   [[3],[4]]	   [[4],[6]]
 
 function solution(arr1, arr2) {
-   var answer = [];
-   return answer;
+   arr1.forEach((x, i) => {
 
+   })
+   var answer = [[]];
+   return answer;
+}
 // 새로 생긴 놀이기구는 인기가 매우 많아 줄이 끊이질 않습니다. 
 // 이 놀이기구의 원래 이용료는 price원 인데, 
 // 놀이기구를 N 번 째 이용한다면 원래 이용료의 N배를 받기로 하였습니다. 
@@ -1132,16 +1135,143 @@ function solution(n, lost, reserve) {
 // 모든 사람이 2문제씩을 맞췄습니다.
 
 function solution(answers) {
-   let 일번선수 = [1, 2, 3, 4, 5];
-   let 이번선수 = [2, 1, 2, 3, 2, 4, 2, 5];
-   let 삼번선수 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+   let result = []; // 제일 많이 맞춘 사람
+   
+   const answer = answers.join("")
+   const quizCount = answer.length;
+   
+   let user1 = [1, 2, 3, 4, 5];
+   let user2 = [2, 1, 2, 3, 2, 4, 2, 5];
+   let user3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
 
-   let 일번선수점수 = 일번선수.filter(
-      (e, i)=>{
-         e = answers[i]
-   }).length
+   let user1Point = 0;
+   let user2Point = 0;
+   let user3Point = 0;
 
-   return 일번선수점수;
+   const user1Answers =  user1.join("").repeat(answers.length % user1.length === 0 ? answers.length / user1.length : Math.ceil(answers.length / user1.length) );
+   const user2Answers = user2.join("").repeat(answers.length % user2.length === 0 ? answers.length / user2.length : Math.ceil(answers.length / user2.length) );
+   const user3Answers = user3.join("").repeat(answers.length % user3.length === 0 ? answers.length / user3.length : Math.ceil(answers.length / user3.length) );
+
+   for(let i = 0; i < quizCount; i++){
+      if(user1Answers[i] == answer[i]) user1Point++
+      if(user2Answers[i] == answer[i]) user2Point++
+      if(user3Answers[i] == answer[i]) user3Point++
+   }
+
+  if(Math.max(user1Point, user2Point, user3Point)=== user1Point) result.push(1)
+  if(Math.max(user1Point, user2Point, user3Point)=== user2Point) result.push(2)
+  if(Math.max(user1Point, user2Point, user3Point)=== user3Point) result.push(3)
+
+   return result
+}
+
+// 네오와 프로도가 숫자놀이를 하고 있습니다.
+// 네오가 프로도에게 숫자를 건넬 때 일부 자릿수를 영단어로 바꾼 카드를 건네주면 
+// 프로도는 원래 숫자를 찾는 게임입니다.
+
+// 다음은 숫자의 일부 자릿수를 영단어로 바꾸는 예시입니다.
+
+// 1478 → "one4seveneight"
+// 234567 → "23four5six7"
+// 10203 → "1zerotwozero3"
+// 이렇게 숫자의 일부 자릿수가 영단어로 바뀌어졌거나, 
+// 혹은 바뀌지 않고 그대로인 문자열 s가 매개변수로 주어집니다. 
+// s가 의미하는 원래 숫자를 return 하도록 solution 함수를 완성해주세요.
+
+// 참고로 각 숫자에 대응되는 영단어는 다음 표와 같습니다.
+
+// 숫자	영단어
+// 0	zero
+// 1	one
+// 2	two
+// 3	three
+// 4	four
+// 5	five
+// 6	six
+// 7	seven
+// 8	eight
+// 9	nine
+// 제한사항
+// 1 ≤ s의 길이 ≤ 50
+// s가 "zero" 또는 "0"으로 시작하는 경우는 주어지지 않습니다.
+// return 값이 1 이상 2,000,000,000 이하의 정수가 되는 올바른 입력만 s로 주어집니다.
+// 입출력 예
+// s	result
+// "one4seveneight"	1478
+// "23four5six7"	234567
+// "2three45sixseven"	234567
+// "123"	123
+// 입출력 예 설명
+// 입출력 예 #1
+
+// 문제 예시와 같습니다.
+// 입출력 예 #2
+
+// 문제 예시와 같습니다.
+// 입출력 예 #3
+
+// "three"는 3, "six"는 6, "seven"은 7에 대응되기 때문에 
+// 정답은 입출력 예 #2와 같은 234567이 됩니다.
+// 입출력 예 #2와 #3과 같이 같은 정답을 가리키는 문자열이 
+// 여러 가지가 나올 수 있습니다.
+// 입출력 예 #4
+
+// s에는 영단어로 바뀐 부분이 없습니다.
+// 제한시간 안내
+// 정확성 테스트 : 10초
+
+function solution(s) {
+   let numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+   var answer = s;
+
+   for(let i=0; i< numbers.length; i++) {
+       let arr = answer.split(numbers[i]);
+       answer = arr.join(i);
+   }
+
+   return answer * 1
+}
+// 수많은 마라톤 선수들이 마라톤에 참여하였습니다. 
+// 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.
+
+// 마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 
+// 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때, 
+// 완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.
+
+// 제한사항
+// 마라톤 경기에 참여한 선수의 수는 1명 이상 100,000명 이하입니다.
+// completion의 길이는 participant의 길이보다 1 작습니다.
+// 참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.
+// 참가자 중에는 동명이인이 있을 수 있습니다.
+// 입출력 예
+// participant	                                       completion	                              return
+// ["leo", "kiki", "eden"]	                           ["eden", "kiki"]	                        "leo"
+// ["marina", "josipa", "nikola", "vinko", "filipa"]	["josipa", "filipa", "marina", "nikola"]	"vinko"
+// ["mislav", "stanko", "mislav", "ana"]	            ["stanko", "ana", "mislav"]	            "mislav"
+// 입출력 예 설명
+// 예제 #1
+// "leo"는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.
+
+// 예제 #2
+// "vinko"는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.
+
+// 예제 #3
+// "mislav"는 참여자 명단에는 두 명이 있지만, 
+// 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.
+
+function solution(participant, completion) {
+   const person = {
+      participant : participant.join().split(),
+      completion : completion.join()
+   }
+   console.log(person)
+
+   completion.forEach((x) => {
+      participant[participant.indexOf(x)] = ""
+   });
+   console.log(participant)
+   participant.join("")
+   return  participant.join("")
 }
 
 //* level 2 
