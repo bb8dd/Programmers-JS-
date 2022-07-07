@@ -1264,7 +1264,6 @@ function solution(participant, completion) {
       participant : participant.join().split(),
       completion : completion.join()
    }
-   console.log(person)
 
    completion.forEach((x) => {
       participant[participant.indexOf(x)] = ""
